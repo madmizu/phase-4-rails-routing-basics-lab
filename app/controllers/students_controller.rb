@@ -10,4 +10,10 @@ class StudentsController < ApplicationController
         render json: orderedGrades
     end
 
+    def highest_grade
+        students = Student.all
+        highestGrade = students.find_by(grade: students.maximum('grade'))
+        render json: highestGrade
+    end
+
 end
